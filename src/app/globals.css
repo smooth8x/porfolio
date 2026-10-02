@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@500;600;700;800;900&display=swap');
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-syne: 'Syne', sans-serif;
+  --font-jetbrains: 'JetBrains Mono', monospace;
+  --bg-primary: #08080a;
+  --bg-surface: #0e0e14;
+  --accent-gold: #E5A93C;
+  --accent-gold-glow: rgba(229, 169, 60, 0.25);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #08080a;
+  color: #f4f4f6;
+  font-family: var(--font-inter);
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #08080a;
+  color: #f4f4f6;
+  min-height: 100vh;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #08080a;
+}
+::-webkit-scrollbar-thumb {
+  background: #23232f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E5A93C;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(16, 16, 22, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(24, 24, 34, 0.85);
+  border-color: rgba(229, 169, 60, 0.3);
+  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.8), 0 0 20px -2px rgba(229, 169, 60, 0.15);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF0B8 0%, #E5A93C 50%, #C98226 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.silver-gradient-text {
+  background: linear-gradient(180deg, #FFFFFF 0%, #A0A0B2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle Film Noise Background */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Animated Border Glow */
+@keyframes borderGlow {
+  0%, 100% {
+    border-color: rgba(229, 169, 60, 0.2);
+  }
+  50% {
+    border-color: rgba(229, 169, 60, 0.6);
+  }
+}
+
+.animate-border-glow {
+  animation: borderGlow 4s ease-in-out infinite;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
